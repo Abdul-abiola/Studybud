@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-hve33p1&m2mznql-!th@7&2n70w2&7r#r)o+a#1v2)pilrd9ch
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'onrender.com']
+ALLOWED_HOSTS = ['studybud-ecb2.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -138,13 +138,18 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
 
-STORAGES = {"staticfiles" : {
-    "BACKEND" : "whitenoise.storage.CompressedManifestStaticFilesStorage",
-},
-    
-    }
+STORAGES = {
+    "default":{
+        "Backend": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+
 
 MEDIA_ROOT = BASE_DIR / 'static/images'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOW_ALL_ORIGINS = True
+
