@@ -26,9 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-hve33p1&m2mznql-!th@7&2n70w2&7r#r)o+a#1v2)pilrd9ch'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['studybud-ecb2.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = [ 'localhost',  '127.0.0.1', 'studybud-ecb2.onrender.com']
 
 
 # Application definition
@@ -49,10 +49,9 @@ INSTALLED_APPS = [
 AUTH_USER_MODEL = 'base.User'
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    
-    "corsheaders.middleware.CorsMiddleware",
     
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
